@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SeminarController;
 use App\Http\Controllers\Peserta\SeminarController as PesertaSeminarController;
 use App\Http\Controllers\Peserta\SeminarRegistrationController;
+use App\Http\Controllers\Admin\SeminarRegistrationVerificationController;
 
 Route::view('/', 'welcome')->name('welcome');
 
@@ -55,6 +56,16 @@ Route::middleware([
             'seminars',
             SeminarController::class
         )->except('show');
+
+        Route::get(
+            '/verifikasi-pendaftaran',
+            [SeminarRegistrationVerificationController::class, 'index']
+        )->name('registration-verification.index');
+
+        Route::patch(
+            '/verifikasi-pendaftaran/{registration}',
+            [SeminarRegistrationVerificationController::class, 'update']
+        )->name('registration-verification.update');
     });
 
 Route::middleware([

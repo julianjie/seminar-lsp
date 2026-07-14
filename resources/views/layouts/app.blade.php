@@ -63,6 +63,14 @@
                                 Kelola Seminar
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route(
+                                'admin.registration-verification.index'
+                            ) }}">
+                                Verifikasi Pendaftaran
+                            </a>
+                        </li>
                     @elseif(auth()->user()->role === 'peserta')
                         <li class="nav-item">
                             <a class="nav-link"
