@@ -66,10 +66,25 @@
                     @elseif(auth()->user()->role === 'peserta')
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="{{ route('peserta.dashboard') }}">
+                            href="{{ route('peserta.dashboard') }}">
                                 Dashboard
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route('peserta.seminars.index') }}">
+                                Daftar Seminar
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route('peserta.registrations.index') }}">
+                                Status Pendaftaran
+                            </a>
+                        </li>
+
                     @endif
                 @endauth
 

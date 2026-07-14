@@ -7,6 +7,8 @@ use App\Http\Controllers\Peserta\DashboardController as PesertaDashboardControll
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SeminarController;
+use App\Http\Controllers\Peserta\SeminarController as PesertaSeminarController;
+use App\Http\Controllers\Peserta\SeminarRegistrationController;
 
 Route::view('/', 'welcome')->name('welcome');
 
@@ -67,4 +69,29 @@ Route::middleware([
             '/dashboard',
             [PesertaDashboardController::class, 'index']
         )->name('dashboard');
+
+        Route::get(
+            '/seminars',
+            [PesertaSeminarController::class, 'index']
+        )->name('seminars.index');
+
+        Route::get(
+            '/seminars/{seminar}',
+            [PesertaSeminarController::class, 'show']
+        )->name('seminars.show');
+
+        Route::post(
+            '/seminars/{seminar}/daftar',
+            [SeminarRegistrationController::class, 'store']
+        )->name('registrations.store');
+
+        Route::get(
+            '/pendaftaran-seminar',
+            [SeminarRegistrationController::class, 'index']
+        )->name('registrations.index');
+
+        Route::delete(
+            '/pendaftaran-seminar/{registration}',
+            [SeminarRegistrationController::class, 'destroy']
+        )->name('registrations.destroy');
     });

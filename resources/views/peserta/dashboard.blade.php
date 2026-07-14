@@ -53,10 +53,10 @@
                                 pendaftaran.
                             </p>
 
-                            <button class="btn btn-primary"
-                                    disabled>
-                                Segera Tersedia
-                            </button>
+                           <a href="{{ route('peserta.seminars.index') }}"
+                            class="btn btn-primary">
+                                Lihat Seminar
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -66,9 +66,10 @@
                         <div class="card-body text-center p-4">
                             <div class="fs-1 mb-3">📝</div>
 
-                            <h5 class="fw-bold">
-                                Status Pendaftaran
-                            </h5>
+                            <a href="{{ route('peserta.registrations.index') }}"
+                            class="btn btn-outline-primary">
+                                Lihat Status
+                            </a>
 
                             <p class="text-secondary">
                                 Pantau proses verifikasi pendaftaran seminar.
