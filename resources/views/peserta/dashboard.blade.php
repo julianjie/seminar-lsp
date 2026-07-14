@@ -96,10 +96,10 @@
                                 Unggah bukti pembayaran dan lihat statusnya.
                             </p>
 
-                            <button class="btn btn-outline-primary"
-                                    disabled>
-                                Segera Tersedia
-                            </button>
+                            <a href="{{ route('peserta.payments.index') }}"
+                            class="btn btn-outline-primary">
+                                Lihat Pembayaran
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\SeminarController;
 use App\Http\Controllers\Peserta\SeminarController as PesertaSeminarController;
 use App\Http\Controllers\Peserta\SeminarRegistrationController;
 use App\Http\Controllers\Admin\SeminarRegistrationVerificationController;
+use App\Http\Controllers\Peserta\PaymentController;
+use App\Http\Controllers\Admin\PaymentVerificationController;
 
 Route::view('/', 'welcome')->name('welcome');
 
@@ -66,6 +68,15 @@ Route::middleware([
             '/verifikasi-pendaftaran/{registration}',
             [SeminarRegistrationVerificationController::class, 'update']
         )->name('registration-verification.update');
+        Route::get(
+            '/verifikasi-pembayaran',
+            [PaymentVerificationController::class, 'index']
+        )->name('payment-verification.index');
+
+        Route::patch(
+            '/verifikasi-pembayaran/{payment}',
+            [PaymentVerificationController::class, 'update']
+        )->name('payment-verification.update');
     });
 
 Route::middleware([
@@ -105,4 +116,28 @@ Route::middleware([
             '/pendaftaran-seminar/{registration}',
             [SeminarRegistrationController::class, 'destroy']
         )->name('registrations.destroy');
+        Route::get(
+            '/pembayaran',
+            [PaymentController::class, 'index']
+        )->name('payments.index');
+
+        Route::get(
+            '/pendaftaran-seminar/{registration}/pembayaran',
+            [PaymentController::class, 'create']
+        )->name('payments.create');
+
+        Route::post(
+            '/pendaftaran-seminar/{registration}/pembayaran',
+            [PaymentController::class, 'store']
+        )->name('payments.store');
+
+        Route::get(
+            '/pembayaran/{payment}/edit',
+            [PaymentController::class, 'edit']
+        )->name('payments.edit');
+
+        Route::put(
+            '/pembayaran/{payment}',
+            [PaymentController::class, 'update']
+        )->name('payments.update');
     });

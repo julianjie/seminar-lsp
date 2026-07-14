@@ -71,6 +71,14 @@
                                 Verifikasi Pendaftaran
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route(
+                                'admin.payment-verification.index'
+                            ) }}">
+                                Verifikasi Pembayaran
+                            </a>
+                        </li>
                     @elseif(auth()->user()->role === 'peserta')
                         <li class="nav-item">
                             <a class="nav-link"
@@ -92,7 +100,12 @@
                                 Status Pendaftaran
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route('peserta.payments.index') }}">
+                                Pembayaran
+                            </a>
+                        </li>
                     @endif
                 @endauth
 
