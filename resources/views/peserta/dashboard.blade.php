@@ -39,7 +39,7 @@
 
             <div class="row g-3">
 
-                <div class="col-md-4">
+                <div class="col-md-6 col-xl-3">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="fs-1 mb-3">📚</div>
@@ -61,29 +61,27 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6 col-xl-3">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="fs-1 mb-3">📝</div>
+
+                            <h5 class="fw-bold">
+                                Status
+                            </h5>
+                            <p class="text-secondary">
+                                Pantau proses verifikasi pendaftaran seminar.
+                            </p>
 
                             <a href="{{ route('peserta.registrations.index') }}"
                             class="btn btn-outline-primary">
                                 Lihat Status
                             </a>
-
-                            <p class="text-secondary">
-                                Pantau proses verifikasi pendaftaran seminar.
-                            </p>
-
-                            <button class="btn btn-outline-primary"
-                                    disabled>
-                                Segera Tersedia
-                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6 col-xl-3">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center p-4">
                             <div class="fs-1 mb-3">💳</div>
@@ -100,6 +98,33 @@
                             class="btn btn-outline-primary">
                                 Lihat Pembayaran
                             </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <div class="fs-1 mb-3">
+                                📢
+                            </div>
+
+                            <h5 class="fw-bold">
+                                Pengumuman
+                            </h5>
+
+                            <p class="text-secondary">
+                                Lihat informasi terbaru mengenai kegiatan seminar.
+                            </p>
+
+                            <a href="{{ route(
+                                    'peserta.announcements.index'
+                                ) }}"
+                            class="btn btn-outline-primary">
+                                Lihat Pengumuman
+                            </a>
+
                         </div>
                     </div>
                 </div>

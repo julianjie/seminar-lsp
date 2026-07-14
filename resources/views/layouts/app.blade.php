@@ -79,6 +79,14 @@
                                 Verifikasi Pembayaran
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route(
+                                'admin.announcements.index'
+                            ) }}">
+                                Kelola Pengumuman
+                            </a>
+                        </li>
                     @elseif(auth()->user()->role === 'peserta')
                         <li class="nav-item">
                             <a class="nav-link"
@@ -104,6 +112,14 @@
                             <a class="nav-link"
                             href="{{ route('peserta.payments.index') }}">
                                 Pembayaran
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                            href="{{ route(
+                                'peserta.announcements.index'
+                            ) }}">
+                                Pengumuman
                             </a>
                         </li>
                     @endif

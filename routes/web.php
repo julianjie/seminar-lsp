@@ -12,6 +12,8 @@ use App\Http\Controllers\Peserta\SeminarRegistrationController;
 use App\Http\Controllers\Admin\SeminarRegistrationVerificationController;
 use App\Http\Controllers\Peserta\PaymentController;
 use App\Http\Controllers\Admin\PaymentVerificationController;
+use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Peserta\AnnouncementController as PesertaAnnouncementController;
 
 Route::view('/', 'welcome')->name('welcome');
 
@@ -77,6 +79,10 @@ Route::middleware([
             '/verifikasi-pembayaran/{payment}',
             [PaymentVerificationController::class, 'update']
         )->name('payment-verification.update');
+        Route::resource(
+            'announcements',
+            AnnouncementController::class
+        )->except('show');
     });
 
 Route::middleware([
@@ -140,4 +146,13 @@ Route::middleware([
             '/pembayaran/{payment}',
             [PaymentController::class, 'update']
         )->name('payments.update');
+        Route::get(
+            '/pengumuman',
+            [PesertaAnnouncementController::class, 'index']
+        )->name('announcements.index');
+
+        Route::get(
+            '/pengumuman/{announcement}',
+            [PesertaAnnouncementController::class, 'show']
+        )->name('announcements.show');
     });
